@@ -18,6 +18,7 @@ python -m venv venv
 
 # Windows
 venv\Scripts\activate
+
 # macOS/Linux
 source venv/bin/activate
 ```
@@ -40,7 +41,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## 2. Docker 실행
+## 2. Docker 실행 환경
 
 ### 2.1 docker-compose
 
