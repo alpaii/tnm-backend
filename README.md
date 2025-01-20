@@ -1,72 +1,52 @@
-# Django Project Setup Guide
+## 요구 사항
 
-Follow the steps below to set up a Django project:
+- Python 3.13
 
-## Step 1: Create a Python Virtual Environment
+## 1. 로컬 실행 환경
 
-To isolate your project dependencies, create a Python virtual environment.
-
-1. Open a terminal and navigate to your desired project directory.
-2. Run the following command to create a virtual environment:
-
-   ```bash
-   python -m venv venv
-   ```
-
-   Replace `venv` with your preferred virtual environment name, if needed.
-
-3. Activate the virtual environment:
-
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. Once activated, your terminal prompt will change to indicate the active environment.
-
-## Step 2: Install Django
-
-With the virtual environment activated, install Django using pip:
+### 1.1 리포지토리 클론
 
 ```bash
-pip install django
+git clone https://github.com/alpaii/tnm-backend.git
+cd tnm-backend
 ```
 
-## Step 3: Create a Django Project
+### 1.2 가상 환경 생성 및 활성화
 
-1. Create a new Django project by running:
+```bash
+python -m venv venv
 
-   ```bash
-   django-admin startproject project_name
-   ```
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
 
-   Replace `project_name` with the desired name for your project.
+### 1.3 의존성 설치
 
-2. Navigate into the newly created project directory:
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   cd project_name
-   ```
+### 1.4 마이그레이션 실행
 
-3. Verify the setup by running the development server:
+```bash
+python manage.py migrate
+```
 
-   ```bash
-   python manage.py runserver
-   ```
+### 1.5 서버 실행
 
-4. Open your browser and go to `http://127.0.0.1:8000/`. You should see the default Django welcome page.
+```bash
+python manage.py runserver
+```
 
-## Notes
+## 2. Docker 실행
 
-- Always remember to activate your virtual environment before working on the project.
-- To deactivate the virtual environment, run:
+### 2.1 docker-compose
 
-  ```bash
-  deactivate
-  ```
+```bash
+# venv 폴더 존재할 경우 제외
+venv/.dockerignore  # 파일 생성
 
-Congratulations! You have successfully set up a Django project.
+docker-compose up -d
+```
